@@ -2,7 +2,7 @@ const { MongoClient } = require('mongodb');
 
 MongoClient.connect('mongodb://localhost:27017', (err, database) => {
     if (err) {
-        return console.log('Unable to connect to MonogoDB Server');
+        return console.error('Unable to connect to MonogoDB Server');
     }
     console.log('Connected to MongoDB Server');
 
