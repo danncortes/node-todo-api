@@ -33,16 +33,16 @@ app.post('/todos/:id', (req, res) => {
     const { id } = req.params;
 
     if (!ObjectID.isValid(id)) {
-        res.status(404);
+        res.status(404).send();
     }
 
     Todo.findById(id).then((todo) => {
         if (!todo) {
-            res.status(404).send({});
+            res.status(404).send();
         }
-        res.send(todo);
+        res.send({ todo });
     }).catch((e) => {
-        res.status(400).send({});
+        res.status(400).send();
     });
 });
 
